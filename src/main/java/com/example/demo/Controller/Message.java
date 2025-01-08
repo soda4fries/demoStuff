@@ -1,16 +1,16 @@
 package com.example.demo.Controller;
 
-public class Message<T> {
+public class Message {
     private String sender;
     private String messageType;
-    private T body;
+    private String body;
     private long timestamp;
 
     public Message() {
         this.timestamp = System.currentTimeMillis();
     }
 
-    public Message(String sender, String messageType, T body) {
+    public Message(String sender, String messageType, String body) {
         this.sender = sender;
         this.messageType = messageType;
         this.body = body;
@@ -34,11 +34,11 @@ public class Message<T> {
         this.messageType = messageType;
     }
 
-    public T getBody() {
+    public String getBody() {
         return body;
     }
 
-    public void setBody(T body) {
+    public void setBody(String body) {
         this.body = body;
     }
 

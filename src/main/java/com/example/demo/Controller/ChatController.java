@@ -21,9 +21,9 @@ public class ChatController {
     }
 
     @PostMapping("/{roomId}/send")
-    public ResponseEntity<Message<?>> sendMessage(
+    public ResponseEntity<Message> sendMessage(
             @PathVariable String roomId,
-            @RequestBody Message<?> message) {
+            @RequestBody Message message) {
 
         if (message.getSender() == null || message.getMessageType() == null) {
             return ResponseEntity.badRequest().build();
@@ -34,7 +34,7 @@ public class ChatController {
     }
 
     @GetMapping("/{roomId}/messages")
-    public ResponseEntity<List<Message<?>>> getMessages(@PathVariable String roomId) {
+    public ResponseEntity<List<Message>> getMessages(@PathVariable String roomId) {
         return ResponseEntity.ok(messageService.getMessages(roomId));
     }
 

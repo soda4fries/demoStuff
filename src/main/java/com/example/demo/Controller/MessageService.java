@@ -8,13 +8,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class MessageService {
-    private final ConcurrentHashMap<String, List<Message<?>>> chatRooms = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, List<Message>> chatRooms = new ConcurrentHashMap<>();
 
-    public void saveMessage(String roomId, Message<?> message) {
+    public void saveMessage(String roomId, Message message) {
         chatRooms.computeIfAbsent(roomId, k -> new ArrayList<>()).add(message);
     }
 
-    public List<Message<?>> getMessages(String roomId) {
+    public List<Message> getMessages(String roomId) {
         return chatRooms.getOrDefault(roomId, new ArrayList<>());
     }
 
